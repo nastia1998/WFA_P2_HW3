@@ -1,0 +1,95 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="zles.zles_hw02.controller.NavBar_Table">
+	<App>
+		<pages>
+			<Page title="{i18n>titleNabTable}">
+				<headerContent>
+					<Button xmlns="sap.m" text="Back" id="button9" icon="sap-icon://navigation-left-arrow" press="action"
+						xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+						action:wiring="\{'press':\{'navigation':\{'routeName':'Inputs'\}\}\}"/>
+				</headerContent>
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<HBox alignItems="Center">
+							<Button text="{i18n>to1}" press="handleNav">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+								<customData>
+									<core:CustomData key="target" value="p1"/>
+								</customData>
+							</Button>
+							<Button text="{i18n>to2}" press="handleNav">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+								<customData>
+									<core:CustomData key="target" value="p2"/>
+								</customData>
+							</Button>
+						</HBox>
+						<HBox>
+							<Select id="animationSelect">
+								<core:Item text="{i18n>slideAnimation}" key="slide"/>
+								<core:Item text="{i18n>fadeAnimation}" key="fade"/>
+								<core:Item text="{i18n>flipAnimation}" key="flip"/>
+								<core:Item text="{i18n>showAnimation}" key="show"/>
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Select>
+						</HBox>
+						<NavContainer id="navCon" width="98%" height="100vh" class="navContainerControl sapUiSmallMarginBottom">
+							<Page id="p1" title="{i18n>computers}">
+								<Table items="{computers>/}">
+									<columns>
+										<Column width="11rem">
+											<header>
+												<HBox alignItems="Center" justifyContent="Start">
+													<Text text="{i18n>compId} " maxLines="0"></Text>
+													<Image width="50px" src="https://images.vexels.com/media/users/3/157564/isolated/preview/d7d05c7c1070e49a5385019c254901a6-simple-laptop-icon-by-vexels.png"/>
+												</HBox>
+											</header>
+										</Column>
+										<Column width="11rem">
+											<Label text="{i18n>image}"/>
+										</Column>
+										<Column width="11rem">
+											<Label text="{i18n>manufacturerElement}"/>
+										</Column>
+										<Column width="11rem">
+											<Label text="{i18n>processorElement}"/>
+										</Column>
+										<Column width="11rem">
+											<Label text="{i18n>diskElement}"/>
+										</Column>
+										<Column width="11rem">
+											<Label text="{i18n>coresElement}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{computers>id}"/>
+												<Image src="{computers>imageUrl}" width="100px" class="sapUiSmallMargin" />
+												<Text text="{computers>manufacturer}"/>
+												<Text text="{computers>processor}"/>
+												<Text text="{computers>hardDiskSize}"/>
+												<Text text="{computers>numOfProcessorCores}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</Page>
+							<Page id="p2" title="{i18n>page2}">
+								<footer>
+									<Toolbar><Button text="{i18n>action2}"/></Toolbar>
+								</footer>
+							</Page>
+						</NavContainer>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
